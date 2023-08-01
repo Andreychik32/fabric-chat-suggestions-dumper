@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "chat-suggestions-dumper",
+  "version": "${version}",
+  "name": "chat-suggestions-dumper",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/Andreychik32/fabric-chat-suggestions-dumper"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/chat-suggestions-dumper/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.haxellio.chatsuggestionsdumper.client.DumperClient"
+    ],
+    "main": [
+      "me.haxellio.chatsuggestionsdumper.DumperMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  },
+  "mixins": [
+    "csd.mixins.json"
+  ]
+}
