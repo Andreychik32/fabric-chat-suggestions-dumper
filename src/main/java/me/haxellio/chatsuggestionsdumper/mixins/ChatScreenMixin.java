@@ -45,7 +45,7 @@ public class ChatScreenMixin {
                 MinecraftClient.getInstance().keyboard.setClipboard(suggestionsString);
                 ToastService.showToast("Success!", "Suggestions copied!");
             })
-            .dimensions(it.width - 102, it.height - 36, 100, 20)
+            .dimensions(it.width - 103, it.height - 60, 100, 20)
             .build();
     }
 
