@@ -10,6 +10,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.network.ServerInfo;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -19,6 +20,7 @@ import java.util.Objects;
 
 @Mixin(ChatScreen.class)
 public class ChatScreenMixin {
+    @Unique
     private ButtonWidget copyButton;
     @Inject(method = "init", at = @At("HEAD"))
     void onChatOpened(CallbackInfo ci) {
@@ -37,7 +39,7 @@ public class ChatScreenMixin {
                 }
                 String suggestionsString = String.join("\r\n", SuggestionsContainer.suggestionList.stream().map(Suggestion::getText).toList());
                 suggestionsString = String.format("Server: %s\r\nIP: %s\r\n\r\nCommands:\r\n%s",
-                        server.name,
+                        server.label.getString(),
                         server.address,
                         suggestionsString);
                 MinecraftClient.getInstance().keyboard.setClipboard(suggestionsString);
