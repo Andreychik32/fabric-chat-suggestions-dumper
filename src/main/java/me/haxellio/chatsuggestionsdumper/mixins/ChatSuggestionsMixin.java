@@ -14,11 +14,11 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 public class ChatSuggestionsMixin {
     @Inject(method = "show", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screen/ChatInputSuggestor$SuggestionWindow;<init>(Lnet/minecraft/client/gui/screen/ChatInputSuggestor;IIILjava/util/List;Z)V"), locals = LocalCapture.CAPTURE_FAILHARD)
     void getChatSuggestions(boolean narrateFirstSuggestion, CallbackInfo ci, Suggestions suggestions) {
-        System.out.println("====================================");
-        suggestions.getList().forEach(suggestion -> {
-            System.out.println(suggestion.getText());
-        });
-        System.out.println("====================================");
+//        System.out.println("====================================");
+//        suggestions.getList().forEach(suggestion -> {
+//            System.out.println(suggestion.getText());
+//        });
+//        System.out.println("====================================");
         SuggestionsContainer.suggestionList = suggestions.getList();
         SuggestionsContainer.serverIP = MinecraftClient.getInstance().getCurrentServerEntry().address;
     }

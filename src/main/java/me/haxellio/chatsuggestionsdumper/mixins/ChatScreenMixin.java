@@ -22,10 +22,6 @@ import java.util.Objects;
 public class ChatScreenMixin {
     @Unique
     private ButtonWidget copyButton;
-    @Inject(method = "init", at = @At("HEAD"))
-    void onChatOpened(CallbackInfo ci) {
-        System.out.println("Chat opened!");
-    }
 
     @Inject(method = "init", at = @At("TAIL"))
     void onInit(CallbackInfo ci) {
